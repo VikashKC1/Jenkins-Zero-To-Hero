@@ -33,9 +33,7 @@ pipeline {
       environment {
         DOCKER_IMAGE = "vikashkc1/ultimate-cicd:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
-        REGISTRY_CREDENTIALS = credentials('docker-cred')
-        RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-17.04.0-ce.tgz 
-        && tar xzvf docker-17.04.0-ce.tgz && mv docker/docker /usr/local/bin && rm -r docker docker-17.04.0-ce.tgz
+        REGISTRY_CREDENTIALS = credentials('docker-cred')   
       }
       steps {
         script {
