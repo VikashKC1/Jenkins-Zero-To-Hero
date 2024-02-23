@@ -29,6 +29,10 @@ pipeline {
         }
       }
     }
+    stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "vikashkc1/ultimate-cicd:${BUILD_NUMBER}"
